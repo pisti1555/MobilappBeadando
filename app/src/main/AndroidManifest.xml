@@ -13,6 +13,30 @@
         android:theme="@style/Theme.Beadando"
         tools:targetApi="31">
         <activity
+            android:name=".menu_buttons.GoalsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".menu_buttons.ExcersizeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".menu_buttons.BodyweightActivity"
+            android:exported="false" />
+        <activity
+            android:name=".menu_buttons.FoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".menu_buttons.WaterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoadscreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -21,6 +45,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
