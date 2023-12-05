@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Beadando</string>
     <string name="real_wealth_is_health">Real wealth is health</string>
+    <string name="water_liter">Water (Liter):</string>
+    <string name="change_goals">Change goals</string>
+    <string name="bodyweight_kg">Bodyweight (kg):</string>
+    <string name="calories">Calories:</string>
+    <string name="current_bodyweight">Current bodyweight:</string>
+    <string name="ok">OK</string>
 </resources>

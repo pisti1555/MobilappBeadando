@@ -8,7 +8,7 @@
 
     <ProgressBar
         android:id="@+id/progressBar_water"
-        style="?android:attr/progressBarStyleHorizontal"
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginBottom="100dp"
@@ -54,4 +54,37 @@
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_water_completed" />
+
+    <TextView
+        android:id="@+id/textView_water_dailyGoalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/alegreya_sc"
+        android:textSize="30dp"
+        app:layout_constraintStart_toEndOf="@+id/textView_water_dailyGoal"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_water_completedValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alegreya_sc"
+        android:textSize="30dp"
+        app:layout_constraintStart_toEndOf="@+id/textView_water_completed"
+        app:layout_constraintTop_toBottomOf="@+id/textView_water_dailyGoalValue" />
+
+    <TextView
+        android:id="@+id/textView_water_remainingValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alegreya_sc"
+        android:textSize="30dp"
+        app:layout_constraintStart_toEndOf="@+id/textView_water_remaining"
+        app:layout_constraintTop_toBottomOf="@+id/textView_water_completedValue" />
 </androidx.constraintlayout.widget.ConstraintLayout>
