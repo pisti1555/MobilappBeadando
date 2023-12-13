@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menu_buttons.GoalsActivity">
+    tools:context=".menu_buttons.goals.GoalsActivity">
 
     <TextView
         android:id="@+id/textView_waterGoal"
@@ -25,7 +25,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/alegreya_sc"
-        android:text="@string/calories"
+        android:text="Daily kcal intake:"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_waterGoal" />
@@ -58,42 +58,42 @@
         android:id="@+id/input_waterGoal"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
         android:enabled="false"
         android:fontFamily="@font/alfa_slab_one"
         android:inputType="number|numberDecimal"
         android:singleLine="true"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView_waterGoal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_bwGoal"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
         android:enabled="false"
         android:fontFamily="@font/alfa_slab_one"
         android:inputType="number|numberDecimal"
         android:singleLine="true"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView_bwGoal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView_calorieGoal" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_calorieGoal"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
         android:enabled="false"
         android:fontFamily="@font/alfa_slab_one"
         android:inputType="number|numberDecimal"
         android:singleLine="true"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView_calorieGoal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView_waterGoal"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
@@ -101,24 +101,24 @@
         android:id="@+id/input_currentBw"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
         android:enabled="false"
         android:fontFamily="@font/alfa_slab_one"
         android:inputType="number|numberDecimal"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView_currentBW"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView_bwGoal" />
 
     <Button
         android:id="@+id/button_changeGoals"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="30dp"
         android:backgroundTint="#E63802"
         android:fontFamily="@font/alegreya_sc"
-        android:text="@string/change_goals"
+        android:text="Edit"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#000000"
