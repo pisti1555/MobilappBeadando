@@ -114,8 +114,8 @@
         android:id="@+id/button_changeGoals"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#E63802"
         android:fontFamily="@font/alegreya_sc"
         android:text="Edit"
@@ -126,5 +126,81 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Switch
+        android:id="@+id/switch_cardioGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:enabled="false"
+        android:fontFamily="@font/alegreya_sc"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_currentBw" />
+
+    <Switch
+        android:id="@+id/switch_weightliftingGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:enabled="false"
+        android:fontFamily="@font/alegreya_sc"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_cardioGoal" />
+
+    <TextView
+        android:id="@+id/textView_addGoalToCardio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Add goal to cardio"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/switch_cardioGoal"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_addGoalToWeightlifting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Add goal to weightlifting"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@id/switch_weightliftingGoal"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_seeCardioGoals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:enabled="false"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="See cardio goals"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/button_seeWeightliftingGoals"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_seeWeightliftingGoals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:enabled="false"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="See lifting goals"
+        android:textSize="20dp"
+        android:textStyle="bold|italic"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,4 +17,7 @@ class Data : Serializable{
 
     var bwGoal = 0
     var bw = 0
+
+    var isThereCardioGoal = false
+    var isThereWeightliftingGoal = false
 }
