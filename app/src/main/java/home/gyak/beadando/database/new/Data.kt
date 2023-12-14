@@ -1,23 +1,29 @@
 package home.gyak.beadando.database.new
 
+import android.os.Parcelable
 import java.io.Serializable
 import java.time.LocalDate
 
-class Data : Serializable{
-    var date = LocalDate.now()
+class Data private constructor() {
+    var waterGoal: Int = 5
+    var water:Int = 2
+    var calorieGoal: Int = 0
+    var calorieCompleted:Int = 0
+    var bwGoal: Int = 0
+    var bw: Int = 0
+    var cardioMinutesGoal:Int = 0
+    var cardioMinutesCompleted:Int = 0
+    var isThereCardioGoal: Boolean = false
+    var isThereWeightliftingGoal: Boolean = false
 
-    var waterGoal = 0
-    var water = 0
+    companion object {
+        private var instance: Data? = null
 
-    var calorieGoal = 0
-    var caloriesCompleted = 0
-
-    var cardioMinutesGoal = 0
-    var cardioMinutesCompleted = 0
-
-    var bwGoal = 0
-    var bw = 0
-
-    var isThereCardioGoal = false
-    var isThereWeightliftingGoal = false
+        fun getInstance(): Data {
+            if (instance == null) {
+                instance = Data()
+            }
+            return instance!!
+        }
+    }
 }

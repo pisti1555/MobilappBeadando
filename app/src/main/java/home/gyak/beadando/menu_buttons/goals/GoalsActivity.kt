@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.Switch
 import androidx.core.view.isVisible
@@ -19,14 +20,12 @@ import home.gyak.beadando.menu_buttons.excersize.lifting.LiftingOnClick
  */
 class GoalsActivity : AppCompatActivity() {
     private lateinit var data: Data
-    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goals)
 
-        sharedPreferences = getPreferences(Context.MODE_PRIVATE)
-        data = loadData()
+        data = Data.getInstance()
 
         val inputWatergoal = findViewById<TextInputEditText>(R.id.input_waterGoal)
         val inputCaloriegoal = findViewById<TextInputEditText>(R.id.input_calorieGoal)
@@ -62,8 +61,7 @@ class GoalsActivity : AppCompatActivity() {
                 cardioSwitch.isEnabled = true
                 liftingSwitch.isEnabled = true
 
-                saveData()
-
+                data.waterGoal = inputWatergoal.text.toString().toInt()
             } else {
                 changeGoalsButton.text = getString(R.string.edit)
                 inputWatergoal.isEnabled = false
@@ -73,19 +71,7 @@ class GoalsActivity : AppCompatActivity() {
                 cardioSwitch.isEnabled = false
                 liftingSwitch.isEnabled = false
 
-                val wg = inputWatergoal.text.toString()
-                val calg = inputCaloriegoal.text.toString()
-                val bwg = inputBwgoal.text.toString()
-                val currbw = inputCurrentBw.text.toString()
-
-                data.waterGoal = wg.toInt()
-                data.calorieGoal = calg.toInt()
-                data.bwGoal = bwg.toInt()
-                data.bw = currbw.toInt()
-                data.isThereWeightliftingGoal = liftingSwitch.isChecked
-                data.isThereCardioGoal = cardioSwitch.isChecked
-
-                saveData()
+                data.waterGoal = inputWatergoal.text.toString().toInt()
             }
         }
 
@@ -94,11 +80,9 @@ class GoalsActivity : AppCompatActivity() {
             if (isChecked) {
                 cardioButton.isEnabled = true
                 cardioButton.isVisible = true
-                saveData()
             } else {
                 cardioButton.isEnabled = false
                 cardioButton.isVisible = false
-                saveData()
             }
         }
 
@@ -107,11 +91,9 @@ class GoalsActivity : AppCompatActivity() {
             if (isChecked) {
                 liftingButton.isEnabled = true
                 liftingButton.isVisible = true
-                saveData()
             } else {
                 liftingButton.isEnabled = false
                 liftingButton.isVisible = false
-                saveData()
             }
         }
 
@@ -148,24 +130,6 @@ class GoalsActivity : AppCompatActivity() {
     }
 
     private fun saveData() {
-        val editor = sharedPreferences.edit()
-        editor.putInt("waterGoal", data.waterGoal)
-        editor.putInt("calorieGoal", data.calorieGoal)
-        editor.putInt("bwGoal", data.bwGoal)
-        editor.putInt("bw", data.bw)
-        editor.putBoolean("isThereCardioGoal", data.isThereCardioGoal)
-        editor.putBoolean("isThereWeightliftingGoal", data.isThereWeightliftingGoal)
-        editor.apply()
-    }
 
-    private fun loadData(): Data {
-        return Data().apply {
-            waterGoal = sharedPreferences.getInt("waterGoal", 0)
-            calorieGoal = sharedPreferences.getInt("calorieGoal", 0)
-            bwGoal = sharedPreferences.getInt("bwGoal", 0)
-            bw = sharedPreferences.getInt("bw", 0)
-            isThereCardioGoal = sharedPreferences.getBoolean("isThereCardioGoal", false)
-            isThereWeightliftingGoal = sharedPreferences.getBoolean("isThereWeightliftingGoal", false)
-        }
     }
 }

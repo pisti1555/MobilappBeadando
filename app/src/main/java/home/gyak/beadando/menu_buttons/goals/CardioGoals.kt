@@ -19,7 +19,7 @@ class CardioGoals : AppCompatActivity() {
         setContentView(R.layout.activity_cardio_goals)
 
         sharedPreferences = getPreferences(Context.MODE_PRIVATE)
-        data = loadData()
+        data = Data.getInstance()
 
         val dailyCardioGoal = findViewById<EditText>(R.id.editTextNumberDecimal_dailyCardioGoal)
         val editButton = findViewById<Button>(R.id.button_cardioGoalEdit)
@@ -55,10 +55,13 @@ class CardioGoals : AppCompatActivity() {
         editor.apply()
     }
 
+    /*
     private fun loadData(): Data {
         return Data().apply {
             cardioMinutesGoal = sharedPreferences.getInt("cardioMinutesGoal", 0)
 
         }
     }
+
+     */
 }

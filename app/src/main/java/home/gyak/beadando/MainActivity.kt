@@ -1,16 +1,10 @@
 package home.gyak.beadando
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.room.Database
-import androidx.room.Room
 import home.gyak.beadando.database.new.AppDatabase
 import home.gyak.beadando.database.new.Data
 import home.gyak.beadando.menu_buttons.BodyweightActivity
@@ -20,11 +14,12 @@ import home.gyak.beadando.menu_buttons.goals.GoalsActivity
 import home.gyak.beadando.menu_buttons.WaterActivity
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var data: Data
+
     companion object {
         lateinit var database: AppDatabase
             private set
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 */
         setContentView(R.layout.activity_main)
 
-        val data = Data()
+        data = Data.getInstance()
 
         val foodImage = findViewById<ImageView>(R.id.imageView_food)
         val waterImage = findViewById<ImageView>(R.id.imageView_water)
@@ -66,7 +61,6 @@ class MainActivity : AppCompatActivity() {
 
         goalsButton.setOnClickListener {
             val intent = Intent(this, GoalsActivity::class.java)
-            intent.putExtra("data", data)
             startActivity(intent)
         }
     }
