@@ -20,8 +20,8 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal_dailyCardioGoal"
-        android:layout_width="191dp"
-        android:layout_height="58dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:ems="10"
@@ -43,4 +43,30 @@
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_dailyCalorieBurnToCardio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Calories to burn:"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal_dailyCardioGoal" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal_dailyCardioCalorieGoal"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:enabled="false"
+        android:fontFamily="@font/akaya_telivigala"
+        android:inputType="numberDecimal"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_dailyCalorieBurnToCardio" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,18 +37,6 @@ class GoalsActivity : AppCompatActivity() {
         val cardioButton = findViewById<Button>(R.id.button_seeCardioGoals)
         val liftingButton = findViewById<Button>(R.id.button_seeWeightliftingGoals)
 
-        if(data.isThereCardioGoal) {
-            cardioButton.isEnabled = true
-            cardioButton.isVisible = true
-            cardioSwitch.isChecked = true
-        }
-
-        if(data.isThereWeightliftingGoal) {
-            liftingButton.isEnabled = true
-            liftingButton.isVisible = true
-            liftingSwitch.isChecked = true
-        }
-
         updateUI()
 
         changeGoalsButton.setOnClickListener {
@@ -61,7 +49,7 @@ class GoalsActivity : AppCompatActivity() {
                 cardioSwitch.isEnabled = true
                 liftingSwitch.isEnabled = true
 
-                data.waterGoal = inputWatergoal.text.toString().toInt()
+                saveData()
             } else {
                 changeGoalsButton.text = getString(R.string.edit)
                 inputWatergoal.isEnabled = false
@@ -71,7 +59,7 @@ class GoalsActivity : AppCompatActivity() {
                 cardioSwitch.isEnabled = false
                 liftingSwitch.isEnabled = false
 
-                data.waterGoal = inputWatergoal.text.toString().toInt()
+                saveData()
             }
         }
 
@@ -106,7 +94,6 @@ class GoalsActivity : AppCompatActivity() {
             val intent = Intent(this, CardioGoals::class.java)
             startActivity(intent)
         }
-
     }
 
     private fun updateUI() {
@@ -116,6 +103,8 @@ class GoalsActivity : AppCompatActivity() {
         val inputCurrentBw = findViewById<TextInputEditText>(R.id.input_currentBw)
         val cardioButton = findViewById<Button>(R.id.button_seeCardioGoals)
         val liftingButton = findViewById<Button>(R.id.button_seeWeightliftingGoals)
+        val cardioSwitch = findViewById<Switch>(R.id.switch_cardioGoal)
+        val liftingSwitch = findViewById<Switch>(R.id.switch_weightliftingGoal)
 
         inputWatergoal.setText(data.waterGoal.toString())
         inputCaloriegoal.setText(data.calorieGoal.toString())
@@ -124,12 +113,29 @@ class GoalsActivity : AppCompatActivity() {
 
         cardioButton.isEnabled = data.isThereCardioGoal
         cardioButton.isVisible = data.isThereCardioGoal
+        cardioSwitch.isChecked = data.isThereCardioGoal
 
         liftingButton.isEnabled = data.isThereWeightliftingGoal
         liftingButton.isVisible = data.isThereWeightliftingGoal
+        liftingSwitch.isChecked = data.isThereWeightliftingGoal
     }
 
     private fun saveData() {
+        val inputWatergoal = findViewById<TextInputEditText>(R.id.input_waterGoal)
+        val inputCaloriegoal = findViewById<TextInputEditText>(R.id.input_calorieGoal)
+        val inputBwgoal = findViewById<TextInputEditText>(R.id.input_bwGoal)
+        val inputCurrentBw = findViewById<TextInputEditText>(R.id.input_currentBw)
+        val cardioSwitch = findViewById<Switch>(R.id.switch_cardioGoal)
+        val liftingSwitch = findViewById<Switch>(R.id.switch_weightliftingGoal)
 
+        data.waterGoal = inputWatergoal.text.toString().toInt()
+        data.calorieGoal = inputCaloriegoal.text.toString().toInt()
+        data.bwGoal = inputBwgoal.text.toString().toInt()
+        data.bw = inputCurrentBw.text.toString().toInt()
+
+        data.isThereCardioGoal = cardioSwitch.isChecked
+        data.isThereWeightliftingGoal = liftingSwitch.isChecked
+
+        updateUI()
     }
 }

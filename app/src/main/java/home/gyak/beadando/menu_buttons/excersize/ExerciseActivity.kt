@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import home.gyak.beadando.R
+import home.gyak.beadando.menu_buttons.excersize.cardio.CardioExercise
 import home.gyak.beadando.menu_buttons.excersize.lifting.LiftingExercise
 
 class ExerciseActivity : AppCompatActivity() {

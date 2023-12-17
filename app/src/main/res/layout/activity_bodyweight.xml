@@ -6,4 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".menu_buttons.BodyweightActivity">
 
+    <TextView
+        android:id="@+id/textView_bw_goal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Goal (kg):"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_bw_current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Current (kg):"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_bw_goal" />
+
+    <TextView
+        android:id="@+id/textView_bw_goalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="0"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_bw_goal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_bw_goal" />
+
+    <TextView
+        android:id="@+id/textView_bw_currentValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="0"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_bw_current"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_bw_current" />
+
+    <TextView
+        android:id="@+id/textView_bw_cutorbulk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="-"
+        android:textSize="40sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_bw_current" />
 </androidx.constraintlayout.widget.ConstraintLayout>

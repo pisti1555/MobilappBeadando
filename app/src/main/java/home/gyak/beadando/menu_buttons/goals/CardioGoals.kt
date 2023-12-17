@@ -1,27 +1,23 @@
 package home.gyak.beadando.menu_buttons.goals
 
-import android.content.Context
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import com.google.android.material.textfield.TextInputEditText
 import home.gyak.beadando.R
 import home.gyak.beadando.database.new.Data
 
 class CardioGoals : AppCompatActivity() {
 
     private lateinit var data: Data
-    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cardio_goals)
 
-        sharedPreferences = getPreferences(Context.MODE_PRIVATE)
         data = Data.getInstance()
 
         val dailyCardioGoal = findViewById<EditText>(R.id.editTextNumberDecimal_dailyCardioGoal)
+        val dailyCardioCalburnGoal = findViewById<EditText>(R.id.editTextNumberDecimal_dailyCardioCalorieGoal)
         val editButton = findViewById<Button>(R.id.button_cardioGoalEdit)
 
         updateUI()
@@ -30,14 +26,13 @@ class CardioGoals : AppCompatActivity() {
             if(!dailyCardioGoal.isEnabled) {
                 editButton.text = getString(R.string.ok)
                 dailyCardioGoal.isEnabled = true
+                dailyCardioCalburnGoal.isEnabled = true
 
                 saveData()
             } else {
                 editButton.text = getString(R.string.edit)
                 dailyCardioGoal.isEnabled = false
-
-                val cardioGoal = dailyCardioGoal.text.toString()
-                data.cardioMinutesGoal = cardioGoal.toInt()
+                dailyCardioCalburnGoal.isEnabled = false
 
                 saveData()
             }
@@ -46,22 +41,16 @@ class CardioGoals : AppCompatActivity() {
 
     private fun updateUI() {
         val dailyCardioGoal = findViewById<EditText>(R.id.editTextNumberDecimal_dailyCardioGoal)
+        val dailyCardioCalburnGoal = findViewById<EditText>(R.id.editTextNumberDecimal_dailyCardioCalorieGoal)
         dailyCardioGoal.setText(data.cardioMinutesGoal.toString())
+        dailyCardioCalburnGoal.setText(data.calorieBurnGoal.toString())
     }
 
     private fun saveData() {
-        val editor = sharedPreferences.edit()
-        editor.putInt("cardioMinutesGoal", data.cardioMinutesGoal)
-        editor.apply()
+        val dailyCardioGoal = findViewById<EditText>(R.id.editTextNumberDecimal_dailyCardioGoal)
+        val dailyCardioCalburnGoal = findViewById<EditText>(R.id.editTextNumberDecimal_dailyCardioCalorieGoal)
+
+        data.cardioMinutesGoal = dailyCardioGoal.text.toString().toInt()
+        data.calorieBurnGoal = dailyCardioCalburnGoal.text.toString().toInt()
     }
-
-    /*
-    private fun loadData(): Data {
-        return Data().apply {
-            cardioMinutesGoal = sharedPreferences.getInt("cardioMinutesGoal", 0)
-
-        }
-    }
-
-     */
 }

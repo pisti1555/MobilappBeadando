@@ -4,13 +4,255 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menu_buttons.excersize.CardioExercise">
+    tools:context=".menu_buttons.excersize.cardio.CardioExercise">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView_cardio_timegoal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="46dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Timegoal:"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Calories to burn goal:"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar_cardio_time" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Time spent:"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cardio_timegoal" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Burnt calories:"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView_cardio_timegoalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="0 minutes"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_cardio_timegoal"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_cardio_timespentValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="0 minutes"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_cardio_caloriegoalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="0 kcal"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_cardio_caloriesburntValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="0 kcal"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_cardio_time"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="243dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_cardio_calories"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="244dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView_cardio_addExercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Add cardio activity"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar_cardio_calories" />
+
+    <TextView
+        android:id="@+id/textView_cardio_walking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Walking"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cardio_addExercise" />
+
+    <TextView
+        android:id="@+id/textView_cardio_running"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Running"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cardio_walking" />
+
+    <TextView
+        android:id="@+id/textView_cardio_cycling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Cycling"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cardio_running" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal_cardio_walking"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="5dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="numberDecimal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_cardio_walking"
+        app:layout_constraintEnd_toStartOf="@+id/textView_cardio_wm" />
+
+    <TextView
+        android:id="@+id/textView_cardio_wm"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="minute"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal_cardio_walking"
+        app:layout_constraintStart_toStartOf="@+id/textView_cardio_rm" />
+
+    <TextView
+        android:id="@+id/textView_cardio_rm"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="minute"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal_cardio_running"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal_cardio_running" />
+
+    <TextView
+        android:id="@+id/textView_cardio_cm"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="minute"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal_cardio_cycling"
+        app:layout_constraintStart_toStartOf="@+id/textView_cardio_rm" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal_cardio_running"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="numberDecimal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_cardio_running"
+        app:layout_constraintStart_toEndOf="@+id/textView_cardio_running" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal_cardio_cycling"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="5dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="numberDecimal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_cardio_cycling"
+        app:layout_constraintEnd_toStartOf="@+id/textView_cardio_cm" />
+
+    <Button
+        android:id="@+id/button_cardio_addActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Add"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView_cardio_addExercise" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

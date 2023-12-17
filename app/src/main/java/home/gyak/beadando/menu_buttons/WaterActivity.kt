@@ -17,8 +17,6 @@ import home.gyak.beadando.menu_buttons.goals.GoalsActivity
 class WaterActivity : AppCompatActivity() {
     private lateinit var data: Data
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_water)

@@ -8,6 +8,7 @@ class Data private constructor() {
     var waterGoal: Int = 5000
     var water:Int = 2000
     var calorieGoal: Int = 0
+    var calorieBurnGoal: Int = 0
     var calorieCompleted:Int = 0
     var bwGoal: Int = 0
     var bw: Int = 0

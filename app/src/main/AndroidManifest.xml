@@ -27,7 +27,7 @@
             android:name=".menu_buttons.excersize.lifting.LiftingExercise"
             android:exported="false" />
         <activity
-            android:name=".menu_buttons.excersize.CardioExercise"
+            android:name=".menu_buttons.excersize.cardio.CardioExercise"
             android:exported="false" />
         <activity
             android:name=".menu_buttons.goals.GoalsActivity"
