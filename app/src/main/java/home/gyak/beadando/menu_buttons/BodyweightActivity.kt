@@ -11,9 +11,6 @@ class BodyweightActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bodyweight)
 
-        //data = intent.getSerializableExtra("DATA_KEY") as? Data ?: Data()
-
-
-        print(data.bwGoal)
+        data = Data.getInstance()
     }
 }

@@ -13,7 +13,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/alegreya_sc"
-        android:text="@string/water_liter"
+        android:text="Water (ml):"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

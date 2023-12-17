@@ -11,10 +11,10 @@
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_water_remaining" />
 
     <TextView
         android:id="@+id/textView_water_dailyGoal"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
-        android:fontFamily="@font/alegreya_sc"
+        android:fontFamily="@font/akaya_telivigala"
         android:text="Daily goal:"
         android:textSize="30dp"
         android:textStyle="bold|italic"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/alegreya_sc"
+        android:fontFamily="@font/akaya_telivigala"
         android:text="Completed:"
         android:textSize="30dp"
         android:textStyle="bold|italic"
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/alegreya_sc"
+        android:fontFamily="@font/akaya_telivigala"
         android:text="Remaining:"
         android:textSize="30dp"
         android:textStyle="bold|italic"
@@ -59,32 +59,255 @@
         android:id="@+id/textView_water_dailyGoalValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
         android:fontFamily="@font/alegreya_sc"
         android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/textView_water_dailyGoal"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@id/textView_water_dailyGoal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_water_dailyGoal" />
 
     <TextView
         android:id="@+id/textView_water_completedValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
         android:fontFamily="@font/alegreya_sc"
         android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/textView_water_completed"
-        app:layout_constraintTop_toBottomOf="@+id/textView_water_dailyGoalValue" />
+        app:layout_constraintBottom_toBottomOf="@id/textView_water_completed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_water_completed" />
 
     <TextView
         android:id="@+id/textView_water_remainingValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
         android:fontFamily="@font/alegreya_sc"
         android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/textView_water_remaining"
-        app:layout_constraintTop_toBottomOf="@+id/textView_water_completedValue" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView_water_remaining"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_water_remaining" />
+
+    <Button
+        android:id="@+id/button_addWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="+Add or -Remove"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar_water" />
+
+    <ImageView
+        android:id="@+id/imageView_cup"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:clickable="false"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_addWater"
+        app:srcCompat="@drawable/cupofwater" />
+
+    <ImageView
+        android:id="@+id/imageView_glass"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:clickable="false"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_cup"
+        app:srcCompat="@drawable/glassofwater" />
+
+    <ImageView
+        android:id="@+id/imageView_bottle"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:clickable="false"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_glass"
+        app:srcCompat="@drawable/bottleofwater" />
+
+    <TextView
+        android:id="@+id/textView_cup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:clickable="false"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Cup (160 ml)"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_cup"
+        app:layout_constraintStart_toEndOf="@+id/imageView_cup" />
+
+    <TextView
+        android:id="@+id/textView_glass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:clickable="false"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Glass (300 ml)"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_glass"
+        app:layout_constraintStart_toEndOf="@+id/imageView_glass" />
+
+    <TextView
+        android:id="@+id/textView_bottle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:clickable="false"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="Bottle (500 ml)"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_bottle"
+        app:layout_constraintStart_toEndOf="@+id/imageView_bottle" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/cupGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_customWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="35dp"
+        android:clickable="false"
+        android:fontFamily="@font/akaya_telivigala"
+        android:text="+Add manually"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_bottle" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_cup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:enabled="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_cup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/addbutton" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_glass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:enabled="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_glass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/addbutton" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_bottle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:enabled="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_bottle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/addbutton" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_custom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:enabled="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal_addManuallyWater"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/addbutton" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal_addManuallyWater"
+        android:layout_width="88dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="5dp"
+        android:ems="10"
+        android:enabled="false"
+        android:fontFamily="@font/akaya_telivigala"
+        android:inputType="numberDecimal"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_customWater"
+        app:layout_constraintStart_toEndOf="@+id/textView_customWater" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_cupRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:enabled="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton_cup"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton_cup"
+        app:srcCompat="@drawable/removeicon" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_glassRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:enabled="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton_glass"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton_glass"
+        app:srcCompat="@drawable/removeicon" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_bottleRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:enabled="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton_bottle"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton_bottle"
+        app:srcCompat="@drawable/removeicon" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_customRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        android:enabled="false"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton_custom"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton_custom"
+        app:srcCompat="@drawable/removeicon" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

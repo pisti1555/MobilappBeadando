@@ -5,8 +5,8 @@ import java.io.Serializable
 import java.time.LocalDate
 
 class Data private constructor() {
-    var waterGoal: Int = 5
-    var water:Int = 2
+    var waterGoal: Int = 5000
+    var water:Int = 2000
     var calorieGoal: Int = 0
     var calorieCompleted:Int = 0
     var bwGoal: Int = 0
