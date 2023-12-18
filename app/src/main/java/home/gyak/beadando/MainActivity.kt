@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import home.gyak.beadando.database.new.AppDatabase
-import home.gyak.beadando.database.new.Data
+import home.gyak.beadando.database.Data
 import home.gyak.beadando.menu_buttons.BodyweightActivity
 import home.gyak.beadando.menu_buttons.excersize.ExerciseActivity
 import home.gyak.beadando.menu_buttons.FoodActivity
@@ -16,22 +15,12 @@ import home.gyak.beadando.menu_buttons.WaterActivity
 class MainActivity : AppCompatActivity() {
     private lateinit var data: Data
 
-    companion object {
-        lateinit var database: AppDatabase
-            private set
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-/*
-        database = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "database"
-        ).allowMainThreadQueries().build()
-*/
         setContentView(R.layout.activity_main)
 
         data = Data.getInstance()
+        data.getData(this)
 
         val foodImage = findViewById<ImageView>(R.id.imageView_food)
         val waterImage = findViewById<ImageView>(R.id.imageView_water)

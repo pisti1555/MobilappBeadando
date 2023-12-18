@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import home.gyak.beadando.R
-import home.gyak.beadando.database.new.Data
+import home.gyak.beadando.database.Data
 
 class CardioGoals : AppCompatActivity() {
 
@@ -52,5 +52,12 @@ class CardioGoals : AppCompatActivity() {
 
         data.cardioMinutesGoal = dailyCardioGoal.text.toString().toInt()
         data.calorieBurnGoal = dailyCardioCalburnGoal.text.toString().toInt()
+
+        var cardiogoal = 0
+        var wlgoal = 0
+        if(data.isThereCardioGoal) cardiogoal = 1
+        if(data.isThereWeightliftingGoal) wlgoal = 1
+        data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+            data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
     }
 }

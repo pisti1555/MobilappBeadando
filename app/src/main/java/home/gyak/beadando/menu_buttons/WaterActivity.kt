@@ -1,6 +1,5 @@
 package home.gyak.beadando.menu_buttons
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -11,8 +10,7 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import home.gyak.beadando.R
-import home.gyak.beadando.database.new.Data
-import home.gyak.beadando.menu_buttons.goals.GoalsActivity
+import home.gyak.beadando.database.Data
 
 class WaterActivity : AppCompatActivity() {
     private lateinit var data: Data
@@ -23,17 +21,7 @@ class WaterActivity : AppCompatActivity() {
 
         data = Data.getInstance()
 
-
         val addButton = findViewById<Button>(R.id.button_addWater)
-
-        val cupImage = findViewById<ImageView>(R.id.imageView_cup)
-        val cupText = findViewById<TextView>(R.id.textView_cup)
-        val glassImage = findViewById<ImageView>(R.id.imageView_glass)
-        val glassText = findViewById<TextView>(R.id.textView_glass)
-        val bottleImage = findViewById<ImageView>(R.id.imageView_bottle)
-        val bottleText = findViewById<TextView>(R.id.textView_bottle)
-        val customAdd = findViewById<TextView>(R.id.textView_customWater)
-
         val addCup = findViewById<FloatingActionButton>(R.id.floatingActionButton_cup)
         val addGlass = findViewById<FloatingActionButton>(R.id.floatingActionButton_glass)
         val addBottle = findViewById<FloatingActionButton>(R.id.floatingActionButton_bottle)
@@ -64,16 +52,37 @@ class WaterActivity : AppCompatActivity() {
         addCup.setOnClickListener {
             data.water += 160
             updateUI()
+
+            var cardiogoal = 0
+            var wlgoal = 0
+            if(data.isThereCardioGoal) cardiogoal = 1
+            if(data.isThereWeightliftingGoal) wlgoal = 1
+            data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+                data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
         }
 
         addGlass.setOnClickListener {
             data.water += 300
             updateUI()
+
+            var cardiogoal = 0
+            var wlgoal = 0
+            if(data.isThereCardioGoal) cardiogoal = 1
+            if(data.isThereWeightliftingGoal) wlgoal = 1
+            data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+                data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
         }
 
         addBottle.setOnClickListener {
             data.water += 500
             updateUI()
+
+            var cardiogoal = 0
+            var wlgoal = 0
+            if(data.isThereCardioGoal) cardiogoal = 1
+            if(data.isThereWeightliftingGoal) wlgoal = 1
+            data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+                data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
         }
 
         addCustom.setOnClickListener {
@@ -81,21 +90,49 @@ class WaterActivity : AppCompatActivity() {
                 data.water += addCustomValue.text.toString().toInt()
                 addCustomValue.setText("")
                 updateUI()
+
+                var cardiogoal = 0
+                var wlgoal = 0
+                if(data.isThereCardioGoal) cardiogoal = 1
+                if(data.isThereWeightliftingGoal) wlgoal = 1
+                data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+                    data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
             }
         }
 
         removeCup.setOnClickListener {
             data.water -= 160
             updateUI()
+
+            var cardiogoal = 0
+            var wlgoal = 0
+            if(data.isThereCardioGoal) cardiogoal = 1
+            if(data.isThereWeightliftingGoal) wlgoal = 1
+            data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+                data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
         }
         removeGlass.setOnClickListener {
             data.water -= 300
             updateUI()
+
+            var cardiogoal = 0
+            var wlgoal = 0
+            if(data.isThereCardioGoal) cardiogoal = 1
+            if(data.isThereWeightliftingGoal) wlgoal = 1
+            data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+                data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
         }
 
         removeBottle.setOnClickListener {
             data.water -= 500
             updateUI()
+
+            var cardiogoal = 0
+            var wlgoal = 0
+            if(data.isThereCardioGoal) cardiogoal = 1
+            if(data.isThereWeightliftingGoal) wlgoal = 1
+            data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+                data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
         }
 
         removeCustom.setOnClickListener {
@@ -103,6 +140,13 @@ class WaterActivity : AppCompatActivity() {
                 data.water -= addCustomValue.text.toString().toInt()
                 addCustomValue.setText("")
                 updateUI()
+
+                var cardiogoal = 0
+                var wlgoal = 0
+                if(data.isThereCardioGoal) cardiogoal = 1
+                if(data.isThereWeightliftingGoal) wlgoal = 1
+                data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+                    data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
             }
         }
     }

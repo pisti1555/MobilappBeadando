@@ -8,7 +8,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.view.isVisible
 import home.gyak.beadando.R
-import home.gyak.beadando.database.new.Data
+import home.gyak.beadando.database.Data
 
 class CardioExercise : AppCompatActivity() {
     private lateinit var data: Data
@@ -53,7 +53,6 @@ class CardioExercise : AppCompatActivity() {
                 addButton.setText("Save")
                 adderShows = true
 
-                saveData()
                 updateUI()
             } else {
                 textwalking.isVisible = false
@@ -96,7 +95,7 @@ class CardioExercise : AppCompatActivity() {
         progressbarTime.max = data.cardioMinutesGoal
         progressbarTime.progress = data.cardioMinutesCompleted
 
-        progressbarCals.max = data.calorieGoal
+        progressbarCals.max = data.calorieBurnGoal
         progressbarCals.progress = data.calorieCompleted
     }
 
@@ -127,8 +126,16 @@ class CardioExercise : AppCompatActivity() {
         val totalMinutes = minutesWalk + minutesRun + minutesCycle
         val totalCalsBurned = calsWalk + calsRun + calsCycle
 
-        data.cardioMinutesCompleted += totalMinutes
-        data.calorieCompleted += totalCalsBurned
+        data.cardioMinutesCompleted = totalMinutes
+        data.calorieCompleted = totalCalsBurned
+
+        var cardiogoal = 0
+        var wlgoal = 0
+        if(data.isThereCardioGoal) cardiogoal = 1
+        if(data.isThereWeightliftingGoal) wlgoal = 1
+
+        data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+            data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
     }
 
     private fun walk(min:Int):Int {

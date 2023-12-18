@@ -1,8 +1,7 @@
 package home.gyak.beadando.menu_buttons.goals
 
-import android.content.Context
+import android.content.ContentValues
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,8 +10,8 @@ import android.widget.Switch
 import androidx.core.view.isVisible
 import com.google.android.material.textfield.TextInputEditText
 import home.gyak.beadando.R
-import home.gyak.beadando.database.new.Data
-import home.gyak.beadando.menu_buttons.excersize.lifting.LiftingOnClick
+import home.gyak.beadando.database.Data
+import home.gyak.beadando.database.DatabaseHelper
 
 
 /**
@@ -137,5 +136,13 @@ class GoalsActivity : AppCompatActivity() {
         data.isThereWeightliftingGoal = liftingSwitch.isChecked
 
         updateUI()
+
+        var cardiogoal = 0
+        var wlgoal = 0
+        if(data.isThereCardioGoal) cardiogoal = 1
+        if(data.isThereWeightliftingGoal) wlgoal = 1
+
+        data.insertData(this, data.waterGoal, data.water, data.calorieGoal, data.calorieBurnGoal, data.calorieCompleted,
+            data.bwGoal, data.bw, data.cardioMinutesGoal, data.cardioMinutesCompleted, cardiogoal, wlgoal)
     }
 }

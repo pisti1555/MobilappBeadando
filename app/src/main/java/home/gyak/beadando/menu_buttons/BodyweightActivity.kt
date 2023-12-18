@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import home.gyak.beadando.R
-import home.gyak.beadando.database.new.Data
+import home.gyak.beadando.database.Data
 
 class BodyweightActivity : AppCompatActivity() {
     private lateinit var data: Data
